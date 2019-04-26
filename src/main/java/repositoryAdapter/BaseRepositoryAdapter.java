@@ -6,12 +6,9 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
 
-import org.springframework.stereotype.Repository;
-
 import exceptions.InvalidModelException;
 import repository.BaseRepository;
 
-@Repository
 public abstract class BaseRepositoryAdapter<T> implements BaseRepository<T> {
 	
 	public abstract EntityManager entityManager();
