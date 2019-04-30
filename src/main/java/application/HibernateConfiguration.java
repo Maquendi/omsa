@@ -1,4 +1,4 @@
-package omsa.config;
+package application;
 
 import java.util.Properties;
 
@@ -7,21 +7,17 @@ import javax.sql.DataSource;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 
 
-@Configuration
-@EnableTransactionManagement
-@PropertySource(value = { "classpath:application.properties" })
-@ComponentScan({"omsa.domain","endpoints","repositoryImpl","serviceImpl"})
+//@Configuration
+//@EnableTransactionManagement
+//@PropertySource(value = { "classpath:application.properties" })
+//@ComponentScan({"omsa.domain","endpoints","repositoryImpl","serviceImpl"})
 public class HibernateConfiguration {
  
     @Autowired
@@ -39,10 +35,10 @@ public class HibernateConfiguration {
     @Bean
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName(environment.getRequiredProperty("jdbc.driverClassName"));
-        dataSource.setUrl(environment.getRequiredProperty("jdbc.url"));
-        dataSource.setUsername(environment.getRequiredProperty("jdbc.username"));
-        dataSource.setPassword(environment.getRequiredProperty("jdbc.password"));
+        dataSource.setDriverClassName("org.h2.Driver");
+        dataSource.setUrl("jdbc:h2:mem:db;DB_CLOSE_DELAY=-1");
+        dataSource.setUsername("sa");
+        dataSource.setPassword("");
         return dataSource;
     }
      

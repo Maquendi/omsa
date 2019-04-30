@@ -1,4 +1,4 @@
-package omsa.domain;
+package application.domain;
 
 import java.io.Serializable;
 

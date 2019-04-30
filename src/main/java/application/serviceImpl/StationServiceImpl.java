@@ -1,11 +1,11 @@
-package serviceImpl;
+package application.serviceImpl;
 
 import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
-import omsa.domain.Station;
-import serviceAdapters.BaseServiceAdapter;
+import application.domain.Station;
+import application.serviceAdapters.BaseServiceAdapter;
 
 @Service
 @Transactional

@@ -1,4 +1,4 @@
-package omsa.domain;
+package application.domain;
 
 import java.io.Serializable;
 
@@ -46,7 +46,45 @@ public class Station implements Serializable{
 		this.name = name;
 	}
 
-	public Station() {
-		
+	public Station() {}
+
+	public long getId() {
+		return id;
 	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Point getPoint() {
+		return point;
+	}
+
+	public void setPoint(Point point) {
+		this.point = point;
+	}
+
+	public BusRoute getRoute() {
+		return route;
+	}
+
+	public void setRoute(BusRoute route) {
+		this.route = route;
+	}
+
+	@Override
+	public String toString() {
+		return "Station [id=" + id + ", name=" + name + ", point=" + point + ", route=" + route + "]";
+	}
+	
+	
+	
 }
