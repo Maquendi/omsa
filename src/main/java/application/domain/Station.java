@@ -1,6 +1,8 @@
 package application.domain;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
+import java.math.BigInteger;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -40,6 +42,23 @@ public class Station implements Serializable{
 	@ManyToOne
 	@JoinColumn(name="route")
 	private BusRoute route;
+	
+	
+	public Station(Object[] columns) {
+		 this.id = (columns[0] != null)?((BigInteger)columns[0]).longValue():0;
+	     this.name = (String) columns[1];
+	     
+	      long pId = (columns[2] != null)?((BigInteger)columns[2]).longValue(): 0;
+	      double lat = (columns[3] != null)?((BigDecimal)columns[3]).doubleValue(): 0;
+	      double lng = (columns[4] != null)?((BigDecimal)columns[4]).doubleValue(): 0;
+	      this.point = new Point(pId,lat,lng); 
+	}
+	
+	
+	
+	
+	
+	
 	
 	
 	public Station(String name) {

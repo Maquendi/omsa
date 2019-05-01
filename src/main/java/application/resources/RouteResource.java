@@ -7,6 +7,7 @@ import org.springframework.hateoas.ResourceSupport;
 
 import application.domain.BusRoute;
 import application.endpoints.RouteController;
+import application.endpoints.StationController;
 
 public class RouteResource extends ResourceSupport {
 
@@ -22,7 +23,7 @@ public class RouteResource extends ResourceSupport {
 		
 		try {
 			   add(linkTo(methodOn(RouteController.class).findById(id)).withSelfRel());
-		      // add(linkTo(methodOn(AddressController.class).getById(id)).withRel("direccion"));
+		       add(linkTo(methodOn(StationController.class).findAllByRoute(id)).withRel("stations"));
 		      // add(linkTo(methodOn(UserContactInfoController.class).getById(id)).withRel("contacto"));
 		} catch (Exception e) {
 			System.out.println(e.getMessage());

@@ -15,7 +15,7 @@ import application.service.IService;
 public abstract class BaseServiceAdapter<T> implements IService<T>{
 	
 	@Autowired
-	private BaseRepository<T> repository;
+	protected BaseRepository<T> repository;
 	
 	
 	@Override

@@ -19,6 +19,7 @@ import application.exceptions.InvalidModelException;
 import application.exceptions.ResourceNotFoundException;
 import application.resources.RouteResource;
 import application.service.IService;
+import application.serviceImpl.BusRouteServiceImpl;
 
 @RestController
 @RequestMapping("/routes")
@@ -51,6 +52,12 @@ public class RouteController {
 		Resources<RouteResource> resources = new Resources<>(collection); 
 		
 		return ResponseEntity.ok(resources);
+	}
+	
+	
+	@GetMapping("/station/{Id}")
+	public ResponseEntity<RouteResource> findByStation(@PathVariable final long Id){
+		return ((BusRouteServiceImpl)routeService).findByStation(Id);
 	}
 	
 	

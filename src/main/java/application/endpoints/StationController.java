@@ -18,6 +18,7 @@ import application.domain.Station;
 import application.exceptions.InvalidModelException;
 import application.resources.StationResource;
 import application.service.IService;
+import application.serviceImpl.StationServiceImpl;
 
 @RestController
 @RequestMapping("/stations")
@@ -49,6 +50,11 @@ public class StationController {
 				.get();
 	}
 	
+	
+	@GetMapping("/route/{Id}")
+	public ResponseEntity<Resources<StationResource>> findAllByRoute(@PathVariable final long Id){
+		return ((StationServiceImpl) stationService).findAllByRoute(Id);
+	}
 	
 
 	@GetMapping

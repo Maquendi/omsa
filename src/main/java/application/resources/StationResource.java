@@ -21,7 +21,7 @@ public class StationResource extends ResourceSupport {
 		
 		try {
 			   add(linkTo(methodOn(StationController.class).findById(id)).withSelfRel());
-		       add(linkTo(methodOn(RouteController.class).findById(id)).withRel("ruta"));
+		       add(linkTo(methodOn(RouteController.class).findByStation(id)).withRel("ruta"));
 		      // add(linkTo(methodOn(UserContactInfoController.class).getById(id)).withRel("contacto"));
 		} catch (Exception e) {
 			System.out.println(e.getMessage());

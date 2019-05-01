@@ -1,5 +1,6 @@
 package application.domain;
 
+import java.math.BigInteger;
 import java.util.Set;
 
 import javax.persistence.Entity;
@@ -31,6 +32,15 @@ public class BusRoute {
 	private Set<Station> stations;
 
 
+	public BusRoute() {}
+	
+	public BusRoute(Object[] columns) {
+        this.id = (columns[0] != null)?((BigInteger)columns[0]).longValue():0;
+        this.name = (String) columns[1];
+    }
+
+	
+	
 	public Long getId() {
 		return id;
 	}

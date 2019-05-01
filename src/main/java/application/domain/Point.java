@@ -35,6 +35,15 @@ public class Point {
 	@OneToOne (mappedBy="point")
 	private Station station;
 
+	public Point(long pId, double lat, double lng) {
+		this.id = pId;
+		this.lat = lat;
+		this.lng = lng;
+	}
+	
+	
+	public Point() {}
+
 	public long getId() {
 		return id;
 	}
@@ -71,7 +80,5 @@ public class Point {
 	public String toString() {
 		return "Point [id=" + id + ", lng=" + lng + ", lat=" + lat + ", station=" + station + "]";
 	}
-	
-	
 	
 }

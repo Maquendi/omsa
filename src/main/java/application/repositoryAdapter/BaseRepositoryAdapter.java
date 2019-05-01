@@ -24,7 +24,7 @@ public abstract class BaseRepositoryAdapter<T> implements BaseRepository<T> {
 	
 	@Autowired
 	@Qualifier("sessionFactory")
-    private SessionFactory sessionFactory;
+    protected SessionFactory sessionFactory;
 	
 	private Class<T> type;
 	
